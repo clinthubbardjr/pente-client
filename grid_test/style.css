@@ -21,11 +21,8 @@ html {
 }
 
 body {
-	width: 732px;
-	height: 732px;
-	
 	background-color: #282828;
-	
+
 	/* CSS TRANSITION */
 	-webkit-transition: background-color 1s ease-in-out;
 	-moz-transition: background-color 1s ease-in-out;
@@ -33,20 +30,33 @@ body {
 	transition: background-color 1s ease-in-out;
 }
 
-svg {	
-	width: 732px;
-	height: 732px;
-    
+svg {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	padding: 5%;
+	box-sizing: border-box;
+
     /* background-color: purple; */
+}
+line {
+	stroke: black;
+	stroke-width: 0.01;
+}
+.points {
+	fill: transparent;
+	cursor: pointer;
+}
+.points:hover {
+	fill: white;
 }
 
 #pointLabel {
 	position: fixed;
-	top: 200px;
-	
+
 	width: 732px;
 	height: 732px;
-    
+
     pointer-events: none;
 }
 #pointLabel p {
@@ -54,6 +64,6 @@ svg {
     font-size: 12em;
     text-align: center;
     text-transform: uppercase;
-    
+
     color: rgba(0, 0, 0, 0.5);
 }

@@ -17,36 +17,78 @@
 	<link href='http://fonts.googleapis.com/css?family=Hammersmith+One|Rubik+One' rel='stylesheet' type='text/css'>
 
 	<!-- Script -->
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="createGrid.js"></script>
 </head>
 <body>
 	<section id="pointLabel">
 		<p>grid</p>
 	</section>
-	
-	<!-- SVG -->
-	<svg id="grid" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-		<defs>
-			<symbol id="points">
-				<circle fill="rgb(255, 255, 255)" fill-opacity=".5" stroke="rgb(255, 255, 255)" stroke-width="1" cx="6" cy="6" r="5"></circle>
-			</symbol>
-		</defs>
 
-		<g id="pointInstances"></g>
+	<!-- SVG -->
+	<svg id="grid" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid">
+		<defs>
+			<circle id="points" cx="0" cy="0" r="1"></circle>
+		</defs>
 		
+		<!-- cols -->
+		<line x1="0" x2="0" y1="0" y2="36"/>
+		<line x1="2" x2="2" y1="0" y2="36"/>
+		<line x1="4" x2="4" y1="0" y2="36"/>
+		<line x1="6" x2="6" y1="0" y2="36"/>
+		<line x1="8" x2="8" y1="0" y2="36"/>
+		<line x1="10" x2="10" y1="0" y2="36"/>
+		<line x1="12" x2="12" y1="0" y2="36"/>
+		<line x1="14" x2="14" y1="0" y2="36"/>
+		<line x1="16" x2="16" y1="0" y2="36"/>
+		<line x1="18" x2="18" y1="0" y2="36"/>
+		<line x1="20" x2="20" y1="0" y2="36"/>
+		<line x1="22" x2="22" y1="0" y2="36"/>
+		<line x1="24" x2="24" y1="0" y2="36"/>
+		<line x1="26" x2="26" y1="0" y2="36"/>
+		<line x1="28" x2="28" y1="0" y2="36"/>
+		<line x1="30" x2="30" y1="0" y2="36"/>
+		<line x1="32" x2="32" y1="0" y2="36"/>
+		<line x1="34" x2="34" y1="0" y2="36"/>
+		<line x1="36" x2="36" y1="0" y2="36"/>
+
+		<!-- rows -->
+		<line y1="0" y2="0" x1="0" x2="36"/>
+		<line y1="2" y2="2" x1="0" x2="36"/>
+		<line y1="4" y2="4" x1="0" x2="36"/>
+		<line y1="6" y2="6" x1="0" x2="36"/>
+		<line y1="8" y2="8" x1="0" x2="36"/>
+		<line y1="10" y2="10" x1="0" x2="36"/>
+		<line y1="12" y2="12" x1="0" x2="36"/>
+		<line y1="14" y2="14" x1="0" x2="36"/>
+		<line y1="16" y2="16" x1="0" x2="36"/>
+		<line y1="18" y2="18" x1="0" x2="36"/>
+		<line y1="20" y2="20" x1="0" x2="36"/>
+		<line y1="22" y2="22" x1="0" x2="36"/>
+		<line y1="24" y2="24" x1="0" x2="36"/>
+		<line y1="26" y2="26" x1="0" x2="36"/>
+		<line y1="28" y2="28" x1="0" x2="36"/>
+		<line y1="30" y2="30" x1="0" x2="36"/>
+		<line y1="32" y2="32" x1="0" x2="36"/>
+		<line y1="34" y2="34" x1="0" x2="36"/>
+		<line y1="36" y2="36" x1="0" x2="36"/>
+
+		<g id="pointInstances">
+
+		</g>
+
 		<!-- Update the pointLabel Text -->
 		<script>
 			function changePointlabel(useElement) {
 				var pointId = useElement.getAttribute("id");
 				var pointLabel = document.getElementById("pointLabel");
-				
+
 				var pointAlpha = pointId.charAt(0);
 				var pointNum = pointId.substring(1);
-				
+
 				console.log(pointId);
-				
+
 				pointLabel.innerHTML = "<" + "p" + ">" + pointAlpha + "-" + pointNum + "<" + "/p" + ">";
-				
+
 				switch(pointAlpha) {
 				    case "a":
 				        console.log("a");

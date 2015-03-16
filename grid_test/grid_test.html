@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+	<title>Grid Test</title>
+	<meta charset="utf-8" />
+
+	<meta name="author" content="First Last" />
+	<meta name="keywords" content="key,words,here" />
+	<meta name="description" content="This is my site." />
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="images/favicon.png" />
+
+	<!-- Stylesheet -->
+	<link type="text/css" rel="stylesheet" media="all" href="style.css" />
+	<link href='http://fonts.googleapis.com/css?family=Hammersmith+One|Rubik+One' rel='stylesheet' type='text/css'>
+
+	<!-- Script -->
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<section id="pointLabel">
+		<p>grid</p>
+	</section>
+	
+	<!-- SVG -->
+	<svg id="grid" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+		<defs>
+			<symbol id="points">
+				<circle fill="rgb(255, 255, 255)" fill-opacity=".5" stroke="rgb(255, 255, 255)" stroke-width="1" cx="6" cy="6" r="5"></circle>
+			</symbol>
+		</defs>
+
+		<g id="pointInstances"></g>
+		
+		<!-- Update the pointLabel Text -->
+		<script>
+			function changePointlabel(useElement) {
+				var pointId = useElement.getAttribute("id");
+				var pointLabel = document.getElementById("pointLabel");
+				
+				var pointAlpha = pointId.charAt(0);
+				var pointNum = pointId.substring(1);
+				
+				console.log(pointId);
+				
+				pointLabel.innerHTML = "<" + "p" + ">" + pointAlpha + "-" + pointNum + "<" + "/p" + ">";
+				
+				switch(pointAlpha) {
+				    case "a":
+				        console.log("a");
+				        document.body.style.backgroundColor = "#282828";
+				        break;
+				    case "b":
+				        console.log("b");
+				        document.body.style.backgroundColor = "#5f3131";
+				        break;
+				    case "c":
+				        console.log("c");
+				        document.body.style.backgroundColor = "#520000";
+				        break;
+				    case "d":
+				        console.log("d");
+				        document.body.style.backgroundColor = "#763408";
+				        break;
+				    case "e":
+				        console.log("e");
+				        document.body.style.backgroundColor = "#79660c";
+				        break;
+				    case "f":
+				        console.log("f");
+				        document.body.style.backgroundColor = "#a5ac16";
+				        break;
+				    case "g":
+				        console.log("g");
+				        document.body.style.backgroundColor = "#508509";
+				        break;
+				    case "h":
+				        console.log("h");
+				        document.body.style.backgroundColor = "#065b06";
+				        break;
+				    case "i":
+				        console.log("i");
+				        document.body.style.backgroundColor = "#239668";
+				        break;
+				    case "j":
+				        console.log("j");
+				        document.body.style.backgroundColor = "#11999e";
+				        break;
+				    case "k":
+				        console.log("k");
+				        document.body.style.backgroundColor = "#0e5a8a";
+				        break;
+				    case "l":
+				        console.log("l");
+				        document.body.style.backgroundColor = "#0c2666";
+				        break;
+				    case "m":
+				        console.log("m");
+				        document.body.style.backgroundColor = "#3b0b87";
+				        break;
+				    case "n":
+				        console.log("n");
+				        document.body.style.backgroundColor = "#5a10b3";
+				        break;
+				    case "o":
+				        console.log("o");
+				        document.body.style.backgroundColor = "#8b21bd";
+				        break;
+				    case "p":
+				        console.log("p");
+				        document.body.style.backgroundColor = "#b020bd";
+				        break;
+				    case "q":
+				        console.log("q");
+				        document.body.style.backgroundColor = "#ea4adf";
+				        break;
+				    case "r":
+				        console.log("r");
+				        document.body.style.backgroundColor = "#eaaee6";
+				        break;
+				    case "s":
+				        console.log("s");
+				        document.body.style.backgroundColor = "#9d9d9a";
+				        break;
+				    default:
+				        console.log("z");
+				        document.body.style.backgroundColor = "#282828";
+				}
+			}
+		</script>
+	</svg>
+</body>

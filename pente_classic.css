@@ -36,7 +36,8 @@ line {
 	stroke: rgb(60, 60, 60);
 	stroke-width: 0.025;
 }
-line.grid-diamond {
+.grid-diamond {
+	fill: rgb(60, 60, 60);
 	stroke-width: 0.025;
 }
 line.grid-middle {
@@ -64,5 +65,5 @@ line.grid-middle {
     text-align: center;
     text-transform: uppercase;
 
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.1);
 }

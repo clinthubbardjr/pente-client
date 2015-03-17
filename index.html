@@ -1,40 +1,480 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
+	<title>Grid Test</title>
+	<meta charset="utf-8" />
 
-  <style type="text/css">
-  body {
-    margin: 0;
-  }
+	<meta name="author" content="First Last" />
+	<meta name="keywords" content="key,words,here" />
+	<meta name="description" content="This is my site." />
 
-  svg {
-    padding: 1em;
-  }
-  </style>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="images/favicon.png" />
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<!-- Stylesheet -->
+	<link type="text/css" rel="stylesheet" media="all" href="style.css" />
+	<link href='http://fonts.googleapis.com/css?family=Hammersmith+One|Rubik+One' rel='stylesheet' type='text/css'>
 
+	<!-- Script -->
+	<!-- <script type="text/javascript" src="createGrid.js"></script> -->
 </head>
 <body>
-  <svg id="grid" height="100%" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" >
-    <defs>
-      <symbol id="marker">
-        <circle  cx="0" cy="0" r="1" style="stroke:none; fill:black;" />
-      </symbol>
-    </defs>
+	<section id="pointLabel">
+		<p>grid</p>
+	</section>
 
-<!-- <use x="10" y="10" xlink:href="#marker" />
-<use x="30" y="10" xlink:href="#marker" />
-<use x="50" y="10" xlink:href="#marker" />
-<use x="60" y="10" xlink:href="#marker" />
-<use x="70" y="10" xlink:href="#marker" />
-<use x="80" y="10" xlink:href="#marker" />
-<use x="90" y="10" xlink:href="#marker" /> -->
-<circle cx="10" cy="10" r="1" style="stroke:none; fill:black;"></circle>
+	<!-- SVG -->
+	<svg id="grid" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid">
+		<defs>
+			<circle id="points" cx="0" cy="0" r="1"></circle>
+		</defs>
+		
+		<div id="gridLines">
+			<!-- cols -->
+			<line x1="0" x2="0" y1="0" y2="36"/>
+			<line x1="2" x2="2" y1="0" y2="36"/>
+			<line x1="4" x2="4" y1="0" y2="36"/>
+			<line x1="6" x2="6" y1="0" y2="36"/>
+			<line x1="8" x2="8" y1="0" y2="36"/>
+			<line x1="10" x2="10" y1="0" y2="36"/>
+			<line x1="12" x2="12" y1="0" y2="36"/>
+			<line x1="14" x2="14" y1="0" y2="36"/>
+			<line x1="16" x2="16" y1="0" y2="36"/>
+			<line x1="18" x2="18" y1="0" y2="36"/>
+			<line x1="20" x2="20" y1="0" y2="36"/>
+			<line x1="22" x2="22" y1="0" y2="36"/>
+			<line x1="24" x2="24" y1="0" y2="36"/>
+			<line x1="26" x2="26" y1="0" y2="36"/>
+			<line x1="28" x2="28" y1="0" y2="36"/>
+			<line x1="30" x2="30" y1="0" y2="36"/>
+			<line x1="32" x2="32" y1="0" y2="36"/>
+			<line x1="34" x2="34" y1="0" y2="36"/>
+			<line x1="36" x2="36" y1="0" y2="36"/>
+	
+			<!-- rows -->
+			<line y1="0" y2="0" x1="0" x2="36"/>
+			<line y1="2" y2="2" x1="0" x2="36"/>
+			<line y1="4" y2="4" x1="0" x2="36"/>
+			<line y1="6" y2="6" x1="0" x2="36"/>
+			<line y1="8" y2="8" x1="0" x2="36"/>
+			<line y1="10" y2="10" x1="0" x2="36"/>
+			<line y1="12" y2="12" x1="0" x2="36"/>
+			<line y1="14" y2="14" x1="0" x2="36"/>
+			<line y1="16" y2="16" x1="0" x2="36"/>
+			<line y1="18" y2="18" x1="0" x2="36"/>
+			<line y1="20" y2="20" x1="0" x2="36"/>
+			<line y1="22" y2="22" x1="0" x2="36"/>
+			<line y1="24" y2="24" x1="0" x2="36"/>
+			<line y1="26" y2="26" x1="0" x2="36"/>
+			<line y1="28" y2="28" x1="0" x2="36"/>
+			<line y1="30" y2="30" x1="0" x2="36"/>
+			<line y1="32" y2="32" x1="0" x2="36"/>
+			<line y1="34" y2="34" x1="0" x2="36"/>
+			<line y1="36" y2="36" x1="0" x2="36"/>
+		</div>
 
-</svg>
-<script src="loop.js"></script>
+		<g id="pointInstances">
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="0" class="points row-a col-1" id="a1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="0" class="points row-a col-2" id="a2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="0" class="points row-a col-3" id="a3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="0" class="points row-a col-4" id="a4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="0" class="points row-a col-5" id="a5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="0" class="points row-a col-6" id="a6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="0" class="points row-a col-7" id="a7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="0" class="points row-a col-8" id="a8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="0" class="points row-a col-9" id="a9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="0" class="points row-a col-10" id="a10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="0" class="points row-a col-11" id="a11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="0" class="points row-a col-12" id="a12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="0" class="points row-a col-13" id="a13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="0" class="points row-a col-14" id="a14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="0" class="points row-a col-15" id="a15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="0" class="points row-a col-16" id="a16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="0" class="points row-a col-17" id="a17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="0" class="points row-a col-18" id="a18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="0" class="points row-a col-19" id="a19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="2" class="points row-b col-1" id="b1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="2" class="points row-b col-2" id="b2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="2" class="points row-b col-3" id="b3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="2" class="points row-b col-4" id="b4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="2" class="points row-b col-5" id="b5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="2" class="points row-b col-6" id="b6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="2" class="points row-b col-7" id="b7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="2" class="points row-b col-8" id="b8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="2" class="points row-b col-9" id="b9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="2" class="points row-b col-10" id="b10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="2" class="points row-b col-11" id="b11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="2" class="points row-b col-12" id="b12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="2" class="points row-b col-13" id="b13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="2" class="points row-b col-14" id="b14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="2" class="points row-b col-15" id="b15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="2" class="points row-b col-16" id="b16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="2" class="points row-b col-17" id="b17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="2" class="points row-b col-18" id="b18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="2" class="points row-b col-19" id="b19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="4" class="points row-c col-1" id="c1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="4" class="points row-c col-2" id="c2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="4" class="points row-c col-3" id="c3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="4" class="points row-c col-4" id="c4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="4" class="points row-c col-5" id="c5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="4" class="points row-c col-6" id="c6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="4" class="points row-c col-7" id="c7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="4" class="points row-c col-8" id="c8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="4" class="points row-c col-9" id="c9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="4" class="points row-c col-10" id="c10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="4" class="points row-c col-11" id="c11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="4" class="points row-c col-12" id="c12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="4" class="points row-c col-13" id="c13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="4" class="points row-c col-14" id="c14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="4" class="points row-c col-15" id="c15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="4" class="points row-c col-16" id="c16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="4" class="points row-c col-17" id="c17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="4" class="points row-c col-18" id="c18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="4" class="points row-c col-19" id="c19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="6" class="points row-d col-1" id="d1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="6" class="points row-d col-2" id="d2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="6" class="points row-d col-3" id="d3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="6" class="points row-d col-4" id="d4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="6" class="points row-d col-5" id="d5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="6" class="points row-d col-6" id="d6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="6" class="points row-d col-7" id="d7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="6" class="points row-d col-8" id="d8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="6" class="points row-d col-9" id="d9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="6" class="points row-d col-10" id="d10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="6" class="points row-d col-11" id="d11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="6" class="points row-d col-12" id="d12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="6" class="points row-d col-13" id="d13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="6" class="points row-d col-14" id="d14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="6" class="points row-d col-15" id="d15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="6" class="points row-d col-16" id="d16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="6" class="points row-d col-17" id="d17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="6" class="points row-d col-18" id="d18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="6" class="points row-d col-19" id="d19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="8" class="points row-e col-1" id="e1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="8" class="points row-e col-2" id="e2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="8" class="points row-e col-3" id="e3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="8" class="points row-e col-4" id="e4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="8" class="points row-e col-5" id="e5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="8" class="points row-e col-6" id="e6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="8" class="points row-e col-7" id="e7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="8" class="points row-e col-8" id="e8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="8" class="points row-e col-9" id="e9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="8" class="points row-e col-10" id="e10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="8" class="points row-e col-11" id="e11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="8" class="points row-e col-12" id="e12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="8" class="points row-e col-13" id="e13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="8" class="points row-e col-14" id="e14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="8" class="points row-e col-15" id="e15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="8" class="points row-e col-16" id="e16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="8" class="points row-e col-17" id="e17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="8" class="points row-e col-18" id="e18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="8" class="points row-e col-19" id="e19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="10" class="points row-f col-1" id="f1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="10" class="points row-f col-2" id="f2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="10" class="points row-f col-3" id="f3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="10" class="points row-f col-4" id="f4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="10" class="points row-f col-5" id="f5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="10" class="points row-f col-6" id="f6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="10" class="points row-f col-7" id="f7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="10" class="points row-f col-8" id="f8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="10" class="points row-f col-9" id="f9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="10" class="points row-f col-10" id="f10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="10" class="points row-f col-11" id="f11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="10" class="points row-f col-12" id="f12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="10" class="points row-f col-13" id="f13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="10" class="points row-f col-14" id="f14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="10" class="points row-f col-15" id="f15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="10" class="points row-f col-16" id="f16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="10" class="points row-f col-17" id="f17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="10" class="points row-f col-18" id="f18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="10" class="points row-f col-19" id="f19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="12" class="points row-g col-1" id="g1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="12" class="points row-g col-2" id="g2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="12" class="points row-g col-3" id="g3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="12" class="points row-g col-4" id="g4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="12" class="points row-g col-5" id="g5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="12" class="points row-g col-6" id="g6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="12" class="points row-g col-7" id="g7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="12" class="points row-g col-8" id="g8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="12" class="points row-g col-9" id="g9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="12" class="points row-g col-10" id="g10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="12" class="points row-g col-11" id="g11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="12" class="points row-g col-12" id="g12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="12" class="points row-g col-13" id="g13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="12" class="points row-g col-14" id="g14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="12" class="points row-g col-15" id="g15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="12" class="points row-g col-16" id="g16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="12" class="points row-g col-17" id="g17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="12" class="points row-g col-18" id="g18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="12" class="points row-g col-19" id="g19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="14" class="points row-h col-1" id="h1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="14" class="points row-h col-2" id="h2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="14" class="points row-h col-3" id="h3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="14" class="points row-h col-4" id="h4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="14" class="points row-h col-5" id="h5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="14" class="points row-h col-6" id="h6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="14" class="points row-h col-7" id="h7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="14" class="points row-h col-8" id="h8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="14" class="points row-h col-9" id="h9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="14" class="points row-h col-10" id="h10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="14" class="points row-h col-11" id="h11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="14" class="points row-h col-12" id="h12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="14" class="points row-h col-13" id="h13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="14" class="points row-h col-14" id="h14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="14" class="points row-h col-15" id="h15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="14" class="points row-h col-16" id="h16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="14" class="points row-h col-17" id="h17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="14" class="points row-h col-18" id="h18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="14" class="points row-h col-19" id="h19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="16" class="points row-i col-1" id="i1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="16" class="points row-i col-2" id="i2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="16" class="points row-i col-3" id="i3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="16" class="points row-i col-4" id="i4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="16" class="points row-i col-5" id="i5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="16" class="points row-i col-6" id="i6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="16" class="points row-i col-7" id="i7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="16" class="points row-i col-8" id="i8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="16" class="points row-i col-9" id="i9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="16" class="points row-i col-10" id="i10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="16" class="points row-i col-11" id="i11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="16" class="points row-i col-12" id="i12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="16" class="points row-i col-13" id="i13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="16" class="points row-i col-14" id="i14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="16" class="points row-i col-15" id="i15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="16" class="points row-i col-16" id="i16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="16" class="points row-i col-17" id="i17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="16" class="points row-i col-18" id="i18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="16" class="points row-i col-19" id="i19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="18" class="points row-j col-1" id="j1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="18" class="points row-j col-2" id="j2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="18" class="points row-j col-3" id="j3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="18" class="points row-j col-4" id="j4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="18" class="points row-j col-5" id="j5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="18" class="points row-j col-6" id="j6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="18" class="points row-j col-7" id="j7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="18" class="points row-j col-8" id="j8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="18" class="points row-j col-9" id="j9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="18" class="points row-j col-10" id="j10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="18" class="points row-j col-11" id="j11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="18" class="points row-j col-12" id="j12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="18" class="points row-j col-13" id="j13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="18" class="points row-j col-14" id="j14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="18" class="points row-j col-15" id="j15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="18" class="points row-j col-16" id="j16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="18" class="points row-j col-17" id="j17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="18" class="points row-j col-18" id="j18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="18" class="points row-j col-19" id="j19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="20" class="points row-k col-1" id="k1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="20" class="points row-k col-2" id="k2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="20" class="points row-k col-3" id="k3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="20" class="points row-k col-4" id="k4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="20" class="points row-k col-5" id="k5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="20" class="points row-k col-6" id="k6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="20" class="points row-k col-7" id="k7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="20" class="points row-k col-8" id="k8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="20" class="points row-k col-9" id="k9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="20" class="points row-k col-10" id="k10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="20" class="points row-k col-11" id="k11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="20" class="points row-k col-12" id="k12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="20" class="points row-k col-13" id="k13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="20" class="points row-k col-14" id="k14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="20" class="points row-k col-15" id="k15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="20" class="points row-k col-16" id="k16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="20" class="points row-k col-17" id="k17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="20" class="points row-k col-18" id="k18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="20" class="points row-k col-19" id="k19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="22" class="points row-l col-1" id="l1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="22" class="points row-l col-2" id="l2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="22" class="points row-l col-3" id="l3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="22" class="points row-l col-4" id="l4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="22" class="points row-l col-5" id="l5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="22" class="points row-l col-6" id="l6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="22" class="points row-l col-7" id="l7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="22" class="points row-l col-8" id="l8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="22" class="points row-l col-9" id="l9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="22" class="points row-l col-10" id="l10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="22" class="points row-l col-11" id="l11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="22" class="points row-l col-12" id="l12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="22" class="points row-l col-13" id="l13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="22" class="points row-l col-14" id="l14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="22" class="points row-l col-15" id="l15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="22" class="points row-l col-16" id="l16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="22" class="points row-l col-17" id="l17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="22" class="points row-l col-18" id="l18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="22" class="points row-l col-19" id="l19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="24" class="points row-m col-1" id="m1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="24" class="points row-m col-2" id="m2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="24" class="points row-m col-3" id="m3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="24" class="points row-m col-4" id="m4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="24" class="points row-m col-5" id="m5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="24" class="points row-m col-6" id="m6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="24" class="points row-m col-7" id="m7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="24" class="points row-m col-8" id="m8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="24" class="points row-m col-9" id="m9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="24" class="points row-m col-10" id="m10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="24" class="points row-m col-11" id="m11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="24" class="points row-m col-12" id="m12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="24" class="points row-m col-13" id="m13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="24" class="points row-m col-14" id="m14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="24" class="points row-m col-15" id="m15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="24" class="points row-m col-16" id="m16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="24" class="points row-m col-17" id="m17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="24" class="points row-m col-18" id="m18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="24" class="points row-m col-19" id="m19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="26" class="points row-n col-1" id="n1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="26" class="points row-n col-2" id="n2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="26" class="points row-n col-3" id="n3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="26" class="points row-n col-4" id="n4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="26" class="points row-n col-5" id="n5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="26" class="points row-n col-6" id="n6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="26" class="points row-n col-7" id="n7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="26" class="points row-n col-8" id="n8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="26" class="points row-n col-9" id="n9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="26" class="points row-n col-10" id="n10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="26" class="points row-n col-11" id="n11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="26" class="points row-n col-12" id="n12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="26" class="points row-n col-13" id="n13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="26" class="points row-n col-14" id="n14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="26" class="points row-n col-15" id="n15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="26" class="points row-n col-16" id="n16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="26" class="points row-n col-17" id="n17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="26" class="points row-n col-18" id="n18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="26" class="points row-n col-19" id="n19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="28" class="points row-o col-1" id="o1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="28" class="points row-o col-2" id="o2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="28" class="points row-o col-3" id="o3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="28" class="points row-o col-4" id="o4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="28" class="points row-o col-5" id="o5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="28" class="points row-o col-6" id="o6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="28" class="points row-o col-7" id="o7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="28" class="points row-o col-8" id="o8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="28" class="points row-o col-9" id="o9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="28" class="points row-o col-10" id="o10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="28" class="points row-o col-11" id="o11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="28" class="points row-o col-12" id="o12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="28" class="points row-o col-13" id="o13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="28" class="points row-o col-14" id="o14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="28" class="points row-o col-15" id="o15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="28" class="points row-o col-16" id="o16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="28" class="points row-o col-17" id="o17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="28" class="points row-o col-18" id="o18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="28" class="points row-o col-19" id="o19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="30" class="points row-p col-1" id="p1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="30" class="points row-p col-2" id="p2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="30" class="points row-p col-3" id="p3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="30" class="points row-p col-4" id="p4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="30" class="points row-p col-5" id="p5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="30" class="points row-p col-6" id="p6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="30" class="points row-p col-7" id="p7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="30" class="points row-p col-8" id="p8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="30" class="points row-p col-9" id="p9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="30" class="points row-p col-10" id="p10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="30" class="points row-p col-11" id="p11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="30" class="points row-p col-12" id="p12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="30" class="points row-p col-13" id="p13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="30" class="points row-p col-14" id="p14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="30" class="points row-p col-15" id="p15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="30" class="points row-p col-16" id="p16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="30" class="points row-p col-17" id="p17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="30" class="points row-p col-18" id="p18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="30" class="points row-p col-19" id="p19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="32" class="points row-q col-1" id="q1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="32" class="points row-q col-2" id="q2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="32" class="points row-q col-3" id="q3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="32" class="points row-q col-4" id="q4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="32" class="points row-q col-5" id="q5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="32" class="points row-q col-6" id="q6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="32" class="points row-q col-7" id="q7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="32" class="points row-q col-8" id="q8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="32" class="points row-q col-9" id="q9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="32" class="points row-q col-10" id="q10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="32" class="points row-q col-11" id="q11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="32" class="points row-q col-12" id="q12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="32" class="points row-q col-13" id="q13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="32" class="points row-q col-14" id="q14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="32" class="points row-q col-15" id="q15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="32" class="points row-q col-16" id="q16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="32" class="points row-q col-17" id="q17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="32" class="points row-q col-18" id="q18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="32" class="points row-q col-19" id="q19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="34" class="points row-r col-1" id="r1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="34" class="points row-r col-2" id="r2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="34" class="points row-r col-3" id="r3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="34" class="points row-r col-4" id="r4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="34" class="points row-r col-5" id="r5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="34" class="points row-r col-6" id="r6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="34" class="points row-r col-7" id="r7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="34" class="points row-r col-8" id="r8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="34" class="points row-r col-9" id="r9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="34" class="points row-r col-10" id="r10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="34" class="points row-r col-11" id="r11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="34" class="points row-r col-12" id="r12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="34" class="points row-r col-13" id="r13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="34" class="points row-r col-14" id="r14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="34" class="points row-r col-15" id="r15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="34" class="points row-r col-16" id="r16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="34" class="points row-r col-17" id="r17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="34" class="points row-r col-18" id="r18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="34" class="points row-r col-19" id="r19" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="0" y="36" class="points row-s col-1" id="s1" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="2" y="36" class="points row-s col-2" id="s2" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="4" y="36" class="points row-s col-3" id="s3" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="6" y="36" class="points row-s col-4" id="s4" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="8" y="36" class="points row-s col-5" id="s5" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="10" y="36" class="points row-s col-6" id="s6" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="12" y="36" class="points row-s col-7" id="s7" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="14" y="36" class="points row-s col-8" id="s8" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="16" y="36" class="points row-s col-9" id="s9" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="18" y="36" class="points row-s col-10" id="s10" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="20" y="36" class="points row-s col-11" id="s11" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="22" y="36" class="points row-s col-12" id="s12" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="24" y="36" class="points row-s col-13" id="s13" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="26" y="36" class="points row-s col-14" id="s14" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="28" y="36" class="points row-s col-15" id="s15" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="30" y="36" class="points row-s col-16" id="s16" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="32" y="36" class="points row-s col-17" id="s17" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="34" y="36" class="points row-s col-18" id="s18" />
+			<use onmouseover="changePointlabel(this)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#points" x="36" y="36" class="points row-s col-19" id="s19" />
+		</g>
+
+		<!-- Update the pointLabel Text -->
+		<script>
+			var colorHex =  {
+			    "a":"#282828",
+			    "b":"#5f3131",
+			    "c":"#520000",
+			    "d":"#763408",
+			    "e":"#79660c",
+			    "f":"#a5ac16",
+			    "g":"#508509",
+			    "h":"#065b06",
+			    "i":"#239668",
+			    "j":"#11999e",
+			    "k":"#0e5a8a",
+			    "l":"#0c2666",
+			    "m":"#3b0b87",
+			    "n":"#5a10b3",
+			    "o":"#8b21bd",
+			    "p":"#b020bd",
+			    "q":"#ea4adf",
+			    "r":"#eaaee6",
+			    "s":"#9d9d9a"
+			 };
+			 
+			function changePointlabel(useElement) {
+				var pointId = useElement.getAttribute("id");
+				var pointLabel = document.getElementById("pointLabel");
+
+				var pointAlpha = pointId.charAt(0);
+				var pointNum = pointId.substring(1);
+
+				// console.log(pointId);
+
+				pointLabel.innerHTML = "<" + "p" + ">" + pointAlpha + "-" + pointNum + "<" + "/p" + ">";
+				
+				document.body.style.backgroundColor = colorHex[pointAlpha]; // Color Hex ["a"]
+			}
+		</script>
+	</svg>
 </body>
-</html>

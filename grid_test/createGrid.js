@@ -37,6 +37,6 @@ function initialize() {
     	numGroup = col + 1;
     	
     	// Inject Use Instances into <g>
-    	pointInstances.innerHTML += "<use onmouseover=\"changePointlabel(this)\" xlink:href = \"#points\" x = \"" + numGroupX + "\" y = \"" + alphaGroupY + "\" class = \"points " + alphaGroup + "\"" + "id = \"" + alphaGroup + numGroup + "\"" + " />";
+    	pointInstances.innerHTML += "<use onmouseover=\"changePointlabel(this)\" xlink:href = \"#points\" x = \"" + numGroupX + "\" y = \"" + alphaGroupY + "\" class = \"points " + "row-" + alphaGroup + " col-" + numGroup + "\"" + "id = \"" + alphaGroup + numGroup + "\"" + " />";
     }    
 }

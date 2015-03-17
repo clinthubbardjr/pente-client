@@ -8,7 +8,6 @@ window.onload = initialize;
 function initialize() {
 	// alert(grid.innerHTML);
 	
-	
 	var pointInstances = document.getElementById("pointInstances");
 	var pointLabel = document.getElementById("pointLabel");
 	

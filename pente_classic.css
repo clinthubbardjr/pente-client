@@ -33,37 +33,28 @@ svg {
     /* background-color: purple; */
 }
 line {
-	stroke: rgb(60, 60, 60);
+	stroke: rgb(40, 40, 40);
 	stroke-width: 0.025;
 }
 .grid-diamond {
-	fill: rgb(60, 60, 60);
+	fill: rgb(40, 40, 40);
+	stroke: rgb(10, 10, 10);
 	stroke-width: 0.025;
 }
-line.grid-middle {
-	stroke-width: 0.1;
+.grid-middle {
+	stroke-width: 0.065;
+}
+.grid-border {
+
 }
 .points {
 	fill: white;
-	opacity: .05;
+	opacity: .15;
 	cursor: pointer;
 }
 .points:hover {
 	opacity: .85;
 }
-
-#pointLabel {
-	position: fixed;
-	top: 40%;
-	width: 100%;
-
-    pointer-events: none;
-}
-#pointLabel p {
-	font-family: 'Rubik One', sans-serif;
-    font-size: 10em;
-    text-align: center;
-    text-transform: uppercase;
-
-    color: rgba(0, 0, 0, 0.1);
+#points circle {
+	fill: red;
 }

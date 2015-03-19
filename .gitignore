@@ -1,1 +1,6 @@
 .DS_Store
+/.cache
+/.npm-debug.log
+/.sass-cache
+/public
+/node_modules
